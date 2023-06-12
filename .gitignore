@@ -1,0 +1,12 @@
+.venv
+blog/__pycache__
+blog/migrations
+blog/models/__pycache__
+blog/serializers/__pycache__
+blog/views/__pycache__
+
+restframework/__pycache__
+
+db.sqlite3
+
+.env
