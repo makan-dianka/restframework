@@ -15,6 +15,11 @@
                     <input class="form-control" type="password" name="password" placeholder="mot de passe" required> <br />
                     <input type="submit" value="Connexion" class="btn btn-primary">
                 </form>
+                
+                <br /> <br /><hr >
+                <p>
+                    Vous n'avez pas un compte ? <a href="{% url 'accounts:create_user' %}">Créer un compte</a>
+                </p>
             </div>
         </div>
     </div>
