@@ -11,9 +11,11 @@
                     <p>Username > {{ request.user.username }}</p>
                     <p>email > {{ request.user.email }}</p>
                     <p>Token > {{ token }}</p>
+                    <hr />
+                    <p><a href="{% url 'accounts:logout' %}">Déconnexion</a></p>
                 {% else %}
                     <h3 class="mt-5">
-                        <a href="#">Connectez vous</a>
+                        <a href="{% url 'accounts:connexion' %}">Connectez vous</a>
                     </h3>
                 {% endif %}
             </div>
