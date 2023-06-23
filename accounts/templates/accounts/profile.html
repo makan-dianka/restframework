@@ -1,0 +1,22 @@
+{% extends 'accounts/layout/base.html' %}
+
+{% block title %}<title>Profile</title>{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                {% if request.user.is_authenticated %}
+                    <h3 class="mt-5">User Info</h3>
+                    <p>Username > {{ request.user.username }}</p>
+                    <p>email > {{ request.user.email }}</p>
+                    <p>Token > {{ token }}</p>
+                {% else %}
+                    <h3 class="mt-5">
+                        <a href="#">Connectez vous</a>
+                    </h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
