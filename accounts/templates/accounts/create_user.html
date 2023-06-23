@@ -7,13 +7,20 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h3 class="mt-5">Création d'un compte</h3>
-                {% for message in messages %}
-                    <p class="text-danger">{{ message }}</p>
-                {% endfor %}
-                <form action="" method="post">{% csrf_token %}
-                    {{form.as_p}}
-                    <button class="btn btn-primary" type="submit">Create mon compte</button>
-                </form>
+                {% if request.user.is_authenticated %}
+                    <p class="text-danger">
+                        Vous êtes authentifié en tant <mark>{{ user.username }} - {{ user.email }}</mark>
+                        Si vous souhaitez créer un autre compte, veuilez vous <a href="{% url 'accounts:logout' %}">Déconnecter</a>
+                    </p>
+                {% else %}
+                    {% for message in messages %}
+                        <p class="text-danger">{{ message }}</p>
+                    {% endfor %}
+                    <form action="" method="post">{% csrf_token %}
+                        {{form.as_p}}
+                        <button class="btn btn-primary" type="submit">Create mon compte</button>
+                    </form>
+                {% endif %}
             </div>
         </div>
     </div>
