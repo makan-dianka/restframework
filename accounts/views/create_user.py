@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .. forms import CustomUserCreationForm
 from django.contrib import messages
 
@@ -8,7 +8,7 @@ def create_user(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            print("OK user created")
+            return redirect("accounts:profile")
         else:
             messages.error(request, "erreur : les saisis ne sont pas valide. Assurez-vous d'utiliser un mot de passe fort et identique ou essayer avec un autre adresse mail")
     form = CustomUserCreationForm
